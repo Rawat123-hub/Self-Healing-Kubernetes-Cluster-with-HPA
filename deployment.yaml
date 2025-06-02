@@ -1,0 +1,37 @@
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: self-healing-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: self-healing
+  template:
+    metadata:
+      labels:
+        app: self-healing
+    spec:
+      containers:
+      - name: app
+        image: self-healing-app:latest
+        ports:
+        - containerPort: 80
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 80
+          initialDelaySeconds: 15
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        resources:
+          requests:
+            cpu: "100m"
+          limits:
+            cpu: "500m"
