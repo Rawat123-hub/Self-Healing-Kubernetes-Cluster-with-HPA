@@ -14,7 +14,16 @@ This project showcases Kubernetes' ability to self-heal and auto-scale applicati
 
 ### 1. Clone & Build
 ```bash
-git clone https://github.com/Rawat123-hub/k8s-hpa-self-healing.git
+git clone https://github.com/Rawat123-hub/Self-Healing-Kubernetes-Cluster-with-HPA.git
 cd k8s-hpa-self-healing
 docker build -t self-healing-app .
 
+### 2. Apply Kubernetes Manifests
+```bash
+kubectl apply -f deployment.yaml
+kubectl apply -f service.yaml
+kubectl apply -f hpa.yaml
+
+### 3. Load Testing
+```bash
+k6 run load-test/test.js
