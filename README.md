@@ -18,12 +18,10 @@ git clone https://github.com/Rawat123-hub/Self-Healing-Kubernetes-Cluster-with-H
 cd k8s-hpa-self-healing
 docker build -t self-healing-app .
 
-### 2. Apply Kubernetes Manifests
-```bash
+#### 2. Apply Kubernetes Manifests
 kubectl apply -f deployment.yaml
 kubectl apply -f service.yaml
 kubectl apply -f hpa.yaml
 
-### 3. Load Testing
-```bash
+3. Load Testing
 k6 run load-test/test.js
