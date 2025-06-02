@@ -14,8 +14,8 @@ This project showcases Kubernetes' ability to self-heal and auto-scale applicati
 
 ### 1. Clone & Build
 ```bash
-git clone https://github.com/yourusername/k8s-hpa-self-healing.git
-cd k8s-hpa-self-healing
+git clone https://github.com/Rawat123-hub/Self-Healing-Kubernetes-Cluster-with-HPA.git
+cd Self-Healing-Kubernetes-Cluster-with-HPA
 docker build -t self-healing-app .
 ```
 
@@ -48,12 +48,6 @@ Use [K6](https://k6.io/) to simulate traffic and CPU load:
 
 ```bash
 k6 run load-test/test.js
-```
-
-Ensure the load test targets your service NodePort or external IP. For example:
-
-```js
-http.get('http://<NODE-IP>:<NODE-PORT>/healthz');
 ```
 
 Monitor scaling:
